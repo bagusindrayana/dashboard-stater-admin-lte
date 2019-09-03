@@ -1,0 +1,2 @@
+ALTER TABLE `data_wargas` ADD `jenis_kelamin` ENUM('Laki-laki','Perempuan') NOT NULL AFTER `alamat`, ADD `rt` VARCHAR(255) NOT NULL AFTER `jenis_kelamin`, ADD `agama` VARCHAR(255) NOT NULL AFTER `rt`, ADD `kawin` ENUM('Sudah','Belum') NOT NULL AFTER `agama`, ADD `pekerjaan` VARCHAR(255) NOT NULL AFTER `kawin`;
+ALTER TABLE `data_wargas` ADD `ttl` VARCHAR(225) NOT NULL AFTER `nama_lengkap`;
