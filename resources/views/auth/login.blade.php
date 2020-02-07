@@ -47,7 +47,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{ url('home') }}"><b>Data</b>Warga</a>
+    <a href="{{ url('home') }}"><b>Admin</b>Login</a>
 
   </div>
   <!-- /.login-logo -->
@@ -55,7 +55,7 @@
   <div class="login-box-body">
 
     <p class="login-box-msg">Sign in to start your session<br>
-    <img src="{{ asset('logo.png') }}" style="width: 100px;"></p>
+    {{-- <img src="{{ asset('logo.png') }}" style="width: 100px;"></p> --}}
 
 
     <form method="POST" action="{{ route('login') }}">

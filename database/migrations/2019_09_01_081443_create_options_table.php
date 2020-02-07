@@ -15,9 +15,14 @@ class CreateOptionsTable extends Migration
     {
         Schema::create('options', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('option_name');
-            $table->string('option_value');
-            $table->timestamps();
+            $table->string('option_name',200);
+            $table->string('option_value',200);
+            //perlu agar timestamp tetap terisi walau enggak pakai fungsi insert atau create
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 

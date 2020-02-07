@@ -17,13 +17,17 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('api_token')->nullable();
             $table->integer('role')->default(0);
             $table->string('no_telepon')->nullable();
             $table->rememberToken();
-            $table->timestamps();
+            //perlu agar timestamp tetap terisi walau enggak pakai fungsi insert atau create
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 

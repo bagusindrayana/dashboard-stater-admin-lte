@@ -16,8 +16,13 @@ class CreateUserLogsTable extends Migration
         Schema::create('user_logs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('keterangan');
-            $table->timestamps();
+            $table->string('keterangan',200);
+            //perlu agar timestamp tetap terisi walau enggak pakai fungsi insert atau create
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
+
+            //$table->timestamps();
+            $table->softDeletes();
         });
     }
 
